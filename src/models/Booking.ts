@@ -6,7 +6,7 @@ class Booking {
   id: string;
 
   @Column()
-  provider: string;
+  groomer: string;
 
   @Column('timestamp with time zone')
   date: Date;
