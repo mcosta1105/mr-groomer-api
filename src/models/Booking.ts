@@ -4,7 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from 'typeorm';
+import User from './User';
 
 @Entity('bookings')
 class Booking {
@@ -13,6 +16,10 @@ class Booking {
 
   @Column()
   groomer_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'groomer_id' })
+  groomer: User;
 
   @Column('timestamp with time zone')
   date: Date;
