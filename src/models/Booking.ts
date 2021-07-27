@@ -12,7 +12,7 @@ class Booking {
   id: string;
 
   @Column()
-  groomer: string;
+  groomer_id: string;
 
   @Column('timestamp with time zone')
   date: Date;
