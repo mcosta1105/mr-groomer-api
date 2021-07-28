@@ -15,7 +15,9 @@ usersRouter.post('/', async (req, res) => {
       password,
     });
 
-    return res.json(user);
+    const { password: pass, ...rest } = user;
+
+    return res.json(rest);
   } catch (error) {
     return res.status(400).json({ error: error.message });
   }
