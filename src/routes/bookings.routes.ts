@@ -17,7 +17,7 @@ bookingsRouter.get('/', async (req, res) => {
 
 bookingsRouter.post('/', async (req, res) => {
   try {
-    const { groomer, date } = req.body;
+    const { groomer_id, date } = req.body;
 
     const paredDate = parseISO(date);
 
@@ -25,7 +25,7 @@ bookingsRouter.post('/', async (req, res) => {
 
     const booking = await createBooking.execute({
       date: paredDate,
-      groomer,
+      groomer_id,
     });
 
     return res.json(booking);

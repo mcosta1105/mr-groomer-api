@@ -5,12 +5,12 @@ import Booking from '../models/Booking';
 import BookingRepository from '../repositories/BookingsRepository';
 
 interface Request {
-  groomer: string;
+  groomer_id: string;
   date: Date;
 }
 
 class CreateBookingService {
-  public async execute({ date, groomer }: Request): Promise<Booking> {
+  public async execute({ date, groomer_id }: Request): Promise<Booking> {
     const bookingRepository = getCustomRepository(BookingRepository);
 
     const bookingDate = startOfHour(date);
@@ -24,7 +24,7 @@ class CreateBookingService {
     }
 
     const booking = bookingRepository.create({
-      groomer,
+      groomer_id,
       date: bookingDate,
     });
 
