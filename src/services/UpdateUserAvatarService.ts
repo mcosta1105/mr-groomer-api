@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import User from '../models/User';
 import uploadConfig from '../config/upload';
 import fs from 'fs';
+import AppError from '../errors/AppError';
 
 interface Request {
   user_id: string;
@@ -16,7 +17,7 @@ class UpdateUserAvatarService {
     const user = await userRepository.findOne(user_id);
 
     if (!user) {
-      throw new Error('You are not authorized to change avatars.');
+      throw new AppError('You are not authorized to change avatars.', 401);
     }
 
     // Delete file

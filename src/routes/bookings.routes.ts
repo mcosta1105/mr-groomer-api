@@ -19,22 +19,18 @@ bookingsRouter.get('/', async (req, res) => {
 });
 
 bookingsRouter.post('/', async (req, res) => {
-  try {
-    const { groomer_id, date } = req.body;
+  const { groomer_id, date } = req.body;
 
-    const paredDate = parseISO(date);
+  const paredDate = parseISO(date);
 
-    const createBooking = new CreateBookingService();
+  const createBooking = new CreateBookingService();
 
-    const booking = await createBooking.execute({
-      date: paredDate,
-      groomer_id,
-    });
+  const booking = await createBooking.execute({
+    date: paredDate,
+    groomer_id,
+  });
 
-    return res.json(booking);
-  } catch (error) {
-    return res.status(400).json({ error: error.message });
-  }
+  return res.json(booking);
 });
 
 export default bookingsRouter;
