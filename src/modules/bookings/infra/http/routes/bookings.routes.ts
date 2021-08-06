@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { getCustomRepository } from 'typeorm';
 import { parseISO } from 'date-fns';
-import isAuth from '../middlewares/auth';
+import isAuth from '@modules/users/infra/middlewares/auth';
 
-import BookingsRepository from '../repositories/BookingsRepository';
-import CreateBookingService from '../services/CreateBookingService';
+import BookingsRepository from '@modules/bookings/repositories/BookingsRepository';
+import CreateBookingService from '@modules/bookings/services/CreateBookingService';
 
 const bookingsRouter = Router();
 

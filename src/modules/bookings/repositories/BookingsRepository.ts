@@ -1,4 +1,4 @@
-import Booking from '../models/Booking';
+import Booking from '../infra/typeorm/entities/Booking';
 import { EntityRepository, Repository } from 'typeorm';
 
 @EntityRepository(Booking)
